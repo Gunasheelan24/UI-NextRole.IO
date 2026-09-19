@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     { label: "Pricing" },
   ];
   return (
-    <main className="flex p-3 bg-[#fbfbfd]">
+    <main className="flex p-3 bg-[#fbfbfd] fixed z-50 w-full">
       <div className="pl-4 pt-1">
         <section className="flex flex-col items-center">
           <div className="flex items-center gap-1">
