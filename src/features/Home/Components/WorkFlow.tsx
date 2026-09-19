@@ -33,7 +33,7 @@ const WorkFlow: React.FC = () => {
   ];
 
   return (
-    <main className="bg-[#f5f5f7] h-[80vh] w-screen relative flex flex-col justify-center items-center">
+    <main className="h-[80vh] w-screen relative flex flex-col justify-center items-center">
       <section className="absolute text-center w-[60%]">
         <p className="text-primary mb-4">How it works</p>
         <h1 className="text-5xl font-inter font-bold">From paste to perfect</h1>
