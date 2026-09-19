@@ -7,6 +7,8 @@ const Header: React.FC = () => {
     { label: "Features" },
     { label: "How it works" },
     { label: "Pricing" },
+    { label: "Reviews" },
+    { label: "Contact us" },
   ];
   return (
     <main className="flex p-3 bg-[#fbfbfd] fixed z-50 w-full top-0">
@@ -42,7 +44,12 @@ const Header: React.FC = () => {
       <section className="flex-1 flex items-center justify-center">
         <ul className="flex gap-7 text-muted-foreground">
           {heroLink.map(({ label }, index) => (
-            <li key={index}>{label}</li>
+            <li
+              className="cursor-pointer hover:text-primary hover:underline hover:duration-500 hover:-translate-y-1 active:translate-y-0"
+              key={index}
+            >
+              {label}
+            </li>
           ))}
         </ul>
       </section>

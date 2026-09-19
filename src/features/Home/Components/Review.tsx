@@ -3,7 +3,7 @@ import Card from "./Card";
 
 const Review: React.FC = () => {
   return (
-    <main className="h-[80vh] flex flex-col justify-center items-center ">
+    <main className="flex flex-col justify-center items-center pb-30">
       <section className="text-center">
         <p className="text-primary mb-4">What people say</p>
         <h1 className="text-5xl font-inter font-bold">
