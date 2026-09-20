@@ -42,19 +42,23 @@ const Features: React.FC = () => {
     <main className="flex flex-col items-center justify-center bg-[#fbfbfd] pt-10">
       <section className="text-center">
         <p className="text-primary mb-4">Features</p>
-        <h1 className="text-5xl font-inter font-bold mb-3">Built different.</h1>
-        <h1 className="text-5xl font-inter font-bold mb-7">Actually works.</h1>
+        <h1 className="text-4xl md:text-5xl font-inter font-bold md:mb-3 mb-3">
+          Built different.
+        </h1>
+        <h1 className="text-4xl md:text-5xl font-inter font-bold md:mb-7 mb-4">
+          Actually works.
+        </h1>
 
         <div className="flex justify-center">
-          <p className="w-[80%] text-muted-foreground text-xl">
+          <p className="w-[80%] text-muted-foreground md:text-xl text-md">
             Not just another resume checker. A full AI editor that reads,
             rewrites, and compiles your LaTeX resume in real time.
           </p>
         </div>
       </section>
 
-      <section className="grid grid-cols-3 mt-15 w-[80vw] grid-rows-[2fr_1fr] h-[600px] gap-x-5 gap-y-5 mb-10  [&>div]:bg-[#ffffff]">
-        <div className="col-span-2 rounded-md p-5 hover:shadow-md hover:duration-300 cursor-pointer">
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 md:grid-rows-[2fr_1fr] md:w-[80vw] mt-15 w-[95vw] gap-x-5 gap-y-5 mb-10 [&>div]:bg-[#ffffff]">
+        <div className="md:col-span-2 rounded-md p-5 hover:shadow-md hover:duration-300 cursor-pointer">
           <div className="bg-[#fff7ed] inline-block rounded-xl p-2">
             <img
               src={artificialIntelligence}
@@ -67,7 +71,7 @@ const Features: React.FC = () => {
             AI that rewrites, not just suggests
           </p>
 
-          <p className="text-muted-foreground mt-2">
+          <p className="text-muted-foreground mt-2 text-sm md:text-md">
             Most tools give vague tips. ResumeAI rewrites your weak bullet
             points with impact metrics, action verbs, and keywords from the job
             description.

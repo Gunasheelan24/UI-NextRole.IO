@@ -11,11 +11,11 @@ const Header: React.FC = () => {
     { label: "Contact us" },
   ];
   return (
-    <main className="flex p-3 bg-[#fbfbfd] fixed z-50 w-full top-0">
+    <main className="flex md:p-3 py-4 bg-[#fbfbfd] justify-between fixed z-50 w-full top-0">
       <div className="pl-4 pt-1">
         <section className="flex flex-col items-center">
           <div className="flex items-center gap-1">
-            <p className="text-2xl font-bold tracking-tight">
+            <p className="md:text-2xl text-xl font-bold tracking-tight">
               <span>Next</span>
               <span className="text-primary">Role</span>
             </p>
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
         </section>
       </div>
 
-      <section className="flex-1 flex items-center justify-center">
+      <section className="xl:flex-1 xl:flex xl:items-center xl:justify-center hidden">
         <ul className="flex gap-7 text-muted-foreground">
           {heroLink.map(({ label }, index) => (
             <li
