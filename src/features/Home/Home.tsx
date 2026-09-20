@@ -24,10 +24,10 @@ const Home: React.FC = () => {
         <Features />
       </section>
 
-      {/* <section className="bg-[#f5f5f7]">
+      <section className="bg-[#f5f5f7]">
         <WorkFlow />
-        <Review />
-      </section> */}
+        {/* <Review /> */}
+      </section>
 
       {/* Footer */}
       {/* <section>
