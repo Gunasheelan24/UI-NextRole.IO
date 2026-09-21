@@ -34,15 +34,17 @@ const WorkFlow: React.FC = () => {
 
   return (
     <main className="w-screen relative flex flex-col justify-center items-center pt-30 mb-35">
-      <section className=" text-center w-[60%]">
-        <p className="text-primary mb-4">How it works</p>
-        <h1 className="text-5xl font-inter font-bold">From paste to perfect</h1>
-        <h1 className="text-5xl font-inter font-bold mt-3 mb-18">
+      <section className=" text-center w-[60%] xl:w-[70%] sm:w-[95%]">
+        <p className="text-primary md:mb-4 mb-3">How it works</p>
+        <h1 className="text-4xl md:text-5xl font-inter font-bold">
+          Paste to perfect
+        </h1>
+        <h1 className="text-4xl md:text-5xl font-inter font-bold mt-3 md:mb-18 mb-10">
           in four steps.
         </h1>
 
-        <ul className="flex justify-between items-center font-inter relative gap-10">
-          <div className="absolute top-6 left-18 bg-[#e5e5e8] h-[0.1rem] w-[80%]"></div>
+        <ul className="flex flex-col md:flex-row justify-between items-center font-inter relative gap-10">
+          <div className="absolute hidden md:inline-block top-6 left-22 sm:left-30 bg-[#e5e5e8] h-[0.1rem] w-[80%] sm:w-[80%]"></div>
 
           {workFlow.map((item, ind) => (
             <li

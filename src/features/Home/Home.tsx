@@ -26,13 +26,13 @@ const Home: React.FC = () => {
 
       <section className="bg-[#f5f5f7]">
         <WorkFlow />
-        {/* <Review /> */}
+        <Review />
       </section>
 
       {/* Footer */}
-      {/* <section>
+      <section>
         <Footer />
-      </section> */}
+      </section>
     </main>
   );
 };
