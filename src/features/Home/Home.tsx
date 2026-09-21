@@ -34,7 +34,7 @@ const Home: React.FC = () => {
         <Footer />
       </section>
     </main>
-  );
+  )
 };
 
 export default Home;
