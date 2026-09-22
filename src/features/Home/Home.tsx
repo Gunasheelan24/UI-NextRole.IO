@@ -9,7 +9,6 @@ import Features from "./Components/Features";
 const Home: React.FC = () => {
   return (
     <main>
-      {/* Header */}
       <section className="mb-19">
         <Header />
       </section>
@@ -19,7 +18,6 @@ const Home: React.FC = () => {
         <Hero />
       </section> */}
 
-      {/* Body */}
       <section>
         <Features />
       </section>
@@ -29,12 +27,11 @@ const Home: React.FC = () => {
         <Review />
       </section>
 
-      {/* Footer */}
       <section>
         <Footer />
       </section>
     </main>
-  )
+  );
 };
 
 export default Home;

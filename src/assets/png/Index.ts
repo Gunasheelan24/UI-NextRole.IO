@@ -6,3 +6,4 @@ export { default as editor } from "./documentation.png";
 export { default as jobCv } from "./cv.png";
 export { default as Score } from "./speedometer.png";
 export { default as history } from "./history.png";
+export { default as bellIcons } from "./bell.png";

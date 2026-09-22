@@ -1,11 +1,11 @@
 import React from "react";
-import "./App.scss";
-import Home from "./features/Home/Home";
+import { RouterProvider } from "react-router-dom";
+import AppRouter from "./app/Router/Index";
 
 const App: React.FC = () => {
   return (
     <>
-      <Home />
+      <RouterProvider router={AppRouter} />
     </>
   );
 };
