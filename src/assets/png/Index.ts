@@ -7,5 +7,5 @@ export { default as jobCv } from "./cv.png";
 export { default as Score } from "./speedometer.png";
 export { default as history } from "./history.png";
 export { default as bellIcons } from "./bell.png";
-export { default as darkMode } from "./night-mode.png";
-export { default as lightMode } from "./light-mode.png";
+export { default as moonIcons } from "./moon.png";
+export { default as lightIcons } from "./day-mode (2).png";
