@@ -13,7 +13,9 @@ import {
   Settings,
 } from "lucide-react";
 
-const Sidebar: React.FC = () => {
+const Sidebar: React.FC<{ setSideBarActive: unknown }> = ({
+  setSideBarActive,
+}) => {
   return (
     <main className="relative h-full w-full border-r">
       <section className="flex items-center justify-between w-full border-b pt-1 px-3 h-[81px]">
@@ -45,7 +47,10 @@ const Sidebar: React.FC = () => {
             </p>
           </section>
         </div>
-        <PanelRightOpen className="text-[#897ad4] hover:text-[#5a41d5] cursor-pointer" />
+        <PanelRightOpen
+          onClick={() => setSideBarActive(false)}
+          className="text-[#897ad4] hover:text-[#5a41d5] cursor-pointer"
+        />
       </section>
 
       <section className="absolute mt-5 px-3 font-inter w-full">
@@ -134,7 +139,7 @@ const Sidebar: React.FC = () => {
         </Button>
         <Button
           variant="outline"
-          className="w-full border-0 text-red-900 font-medium cursor-pointer"
+          className="w-full border-0 text-red-9502 font-medium cursor-pointer"
         >
           <LogOut />
           Log Out
