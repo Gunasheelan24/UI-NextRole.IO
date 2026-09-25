@@ -12,9 +12,7 @@ const Header: React.FC = () => {
   const [darkMode, setDarkMode] = useState<string>("light");
 
   return (
-    <main className="flex md:p-3 py-4 justify-between w-fit fixed top-0 right-0">
-      <section></section>
-      <section></section>
+    <main className="flex md:p-3 py-4 justify-end border-b h-[81px]">
       <section className="flex items-center gap-4">
         <Button variant="ghost" size="icon" className=" hover:bg-[#e6defa]">
           <img src={bellIcons} alt="Notifications" className="h-5 w-5" />
