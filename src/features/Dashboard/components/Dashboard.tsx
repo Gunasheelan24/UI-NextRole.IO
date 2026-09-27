@@ -1,8 +1,16 @@
 import React from "react";
-import { Input } from "../../../components/ui/input";
-import { Button } from "../../../components/ui/button";
 import DashboardCard from "./DashboardCard";
+import { Button } from "../../../components/ui/button";
 import { FileText, Send, Target, Trophy } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../../../components/ui/card";
+import { ArrowLeft } from "./ArrowLeft";
+import { Badge } from "../../../components/ui/badge";
+import { Progress } from "../../../components/ui/progress";
 
 interface IDashboard {
   lightMode: string;
@@ -65,6 +73,60 @@ const Dashboard: React.FC<IDashboard> = ({ lightMode }) => {
     },
   ];
 
+  const RecentApplication = [
+    {
+      id: 0,
+      role: "Frontend Engineer",
+      company: "Zoho Corporation",
+      stage: "Selected",
+    },
+    {
+      id: 1,
+      role: "Backtend Engineer",
+      company: "IBM Corporation",
+      stage: "Applied",
+    },
+    {
+      id: 2,
+      role: "Backtend Engineer",
+      company: "Infosys Corporation",
+      stage: "In Review",
+    },
+    {
+      id: 3,
+      role: "Full Stack Developer",
+      company: "Impelox Tech",
+      stage: "Rejected",
+    },
+  ];
+
+  const topJobMatches = [
+    {
+      id: 0,
+      role: "Senior Frontend Dev",
+      company: "Razorpay",
+      percentage: 87,
+    },
+    {
+      id: 1,
+      role: "React Engineer CRED",
+      company: "CRED",
+      percentage: 84,
+    },
+    {
+      id: 2,
+      role: "UI Developer",
+      company: "PhonePe · Remote",
+      percentage: 81,
+    },
+    {
+      id: 3,
+      role: "Frontend Architect",
+      company: "Swiggy",
+      percentage: 76,
+    },
+  ];
+
   return (
     <React.Fragment>
       <main className="mt-3 flex justify-between items-center h-14 px-3">
@@ -84,11 +146,86 @@ const Dashboard: React.FC<IDashboard> = ({ lightMode }) => {
       </main>
 
       <main className="mt-4">
-        <section className="grid grid-cols-4 grid-rows-1 gap-4">
+        <section className="grid sm:grid-cols-2 grid-cols-[w-full] md:grid-cols-2  grid-rows-1 gap-4">
           {resumeAnalysis.map((item) => (
             <DashboardCard {...item} />
           ))}
         </section>
+      </main>
+
+      <main className="flex justify-between gap-4 mt-4">
+        <Card className="flex-1">
+          <CardHeader className="flex justify-between">
+            <CardTitle className="font-normal">Recent Applications</CardTitle>
+            <CardTitle className="font-normal flex items-center text-primary cursor-pointer">
+              View all <ArrowLeft size={16} />
+            </CardTitle>
+          </CardHeader>
+
+          <CardContent>
+            {/* Main Content 1 */}
+            {RecentApplication.map(({ id, role, company, stage }) => (
+              <main key={id} className="flex justify-between items-center mt-4">
+                <section className="flex gap-3">
+                  <div className="h-11 w-11 flex items-center justify-center rounded-xl bg-[#f5f5f7]">
+                    <p className="tex-center font-medium">
+                      <span className="text-blue-400">
+                        {company?.split(" ")?.[0]?.[0] ?? company?.[0]}
+                      </span>
+                      <span className="text-primary">
+                        {company?.split(" ")?.[1]?.[0] ?? company?.[1]}
+                      </span>
+                    </p>
+                  </div>
+                  <div>
+                    <p>{role}</p>
+                    <p>{company}</p>
+                  </div>
+                </section>
+                <section>
+                  <Badge variant="secondary" className="p-3">
+                    {stage}
+                  </Badge>
+                </section>
+              </main>
+            ))}
+          </CardContent>
+        </Card>
+
+        <Card className="flex-1">
+          <CardHeader className="flex justify-between">
+            <CardTitle className="font-normal">Top Job Matches</CardTitle>
+            <CardTitle className="font-normal flex items-center text-primary cursor-pointer">
+              Explore <ArrowLeft size={16} />
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            {topJobMatches.map(({ id, role, company, percentage }) => (
+              <main key={id} className="flex justify-between items-center mt-4">
+                <section className="flex gap-3">
+                  <div className="h-11 w-11 flex items-center justify-center rounded-xl bg-[#f5f5f7]">
+                    <p className="tex-center font-medium">
+                      <span className="text-blue-400">
+                        {company?.split(" ")?.[0]?.[0] ?? company?.[0]}
+                      </span>
+                      <span className="text-primary">
+                        {company?.split(" ")?.[1]?.[0] ?? company?.[1]}
+                      </span>
+                    </p>
+                  </div>
+                  <div>
+                    <p>{role}</p>
+                    <p>{company}</p>
+                    <Progress value={percentage} className="w-[60%]" />
+                  </div>
+                </section>
+                <section>
+                  <p className="p-3 text-md font-bold">{percentage}%</p>
+                </section>
+              </main>
+            ))}
+          </CardContent>
+        </Card>
       </main>
     </React.Fragment>
   );

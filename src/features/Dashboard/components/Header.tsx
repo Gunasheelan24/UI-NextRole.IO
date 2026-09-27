@@ -6,7 +6,7 @@ import {
   AvatarImage,
   AvatarFallback,
 } from "../../../components/ui/avatar";
-import { Bell, ChevronDown, UserPen } from "lucide-react";
+import { Bell, ChevronDown, Search, UserPen } from "lucide-react";
 import { Button } from "../../../components/ui/button";
 import { bellIcons } from "../../../assets/png/Index";
 import { Card, CardContent, CardHeader } from "../../../components/ui/card";
@@ -32,16 +32,8 @@ const Header: React.FC<IHeader> = ({
         setSideBarActive("close");
         setProfilePopupStatus((prev) => (prev == "open" ? "close" : "open"));
       }}
-      className="flex md:p-3 py-4 justify-between items-center h-[65px] bg-white shadow-sm relative select-none"
+      className="flex md:p-3 py-4 justify-end items-center h-[65px] bg-white shadow-sm relative select-none"
     >
-      <section>
-        <Input
-          placeholder="Search here..."
-          type="text"
-          id="search"
-          className="w-130 bg-white rounded-sm"
-        />
-      </section>
       <section className="flex items-center gap-4">
         <Button
           variant="ghost"
