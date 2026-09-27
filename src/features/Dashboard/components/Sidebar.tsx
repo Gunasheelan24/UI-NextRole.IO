@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type Dispatch, type SetStateAction } from "react";
 import { motion } from "framer-motion";
 import { Button } from "../../../components/ui/button";
 import {
@@ -8,26 +8,37 @@ import {
   ListSortDescending,
   LogOut,
   Mails,
+  Menu,
   PanelRightOpen,
   Plus,
   Settings,
 } from "lucide-react";
+import { cn } from "cn";
 
-const Sidebar: React.FC<{ setSideBarActive: unknown }> = ({
-  setSideBarActive,
-}) => {
+const Sidebar: React.FC<{
+  setSideBarStatus: Dispatch<SetStateAction<"open" | "close">>;
+  setProfilePopupStatus: Dispatch<SetStateAction<"open" | "close">>;
+  sideBarState: string;
+}> = ({ setSideBarStatus, sideBarState, setProfilePopupStatus }) => {
   return (
-    <main className="relative h-full w-full border-r">
-      <section className="flex items-center justify-between w-full border-b pt-1 px-3 h-[81px]">
-        <div>
-          <section className="flex flex-col items-center">
+    <main className="relative h-screen w-full">
+      <section className="flex items-center justify-between w-full pt-1 px-3 h-[81px]">
+        <motion.div
+          animate={{
+            opacity: sideBarState === "open" ? 1 : 0,
+          }}
+          transition={{
+            duration: 0.15,
+          }}
+          className="overflow-hidden"
+        >
+          <section className="flex flex-col items-start">
             <div className="flex items-center gap-1">
-              <p className="md:text-2xl text-xl font-bold tracking-tight">
+              <p className="md:text-2xl text-xl font-bold tracking-tight whitespace-nowrap">
                 <span>Next</span>
                 <span className="text-primary">Role</span>
               </p>
 
-              {/* Premium Accent Dot */}
               <motion.div
                 className="h-4 w-4 mt-1 rounded-full bg-primary"
                 animate={{
@@ -42,39 +53,75 @@ const Sidebar: React.FC<{ setSideBarActive: unknown }> = ({
               />
             </div>
 
-            <p className="text-[0.8rem] text-muted-foreground -mt-0.5">
+            <p className="text-[0.8rem] text-muted-foreground whitespace-nowrap">
               Build Today. Land Tomorrow.
             </p>
           </section>
-        </div>
-        <PanelRightOpen
-          onClick={() => setSideBarActive(false)}
-          className="text-[#897ad4] hover:text-[#5a41d5] cursor-pointer"
-        />
+        </motion.div>
+        {sideBarState == "open" ? (
+          <PanelRightOpen
+            onClick={(event) => {
+              event.stopPropagation();
+              setSideBarStatus("close");
+            }}
+            className="text-[#897ad4] hover:text-[#5a41d5] cursor-pointer"
+          />
+        ) : (
+          <Menu
+            size={"20px"}
+            onClick={() => {
+              setProfilePopupStatus("open");
+              setSideBarStatus("open");
+            }}
+            className="ms-2 hover:text-[#5a41d5] cursor-pointer absolute"
+          />
+        )}
       </section>
 
       <section className="absolute mt-5 px-3 font-inter w-full">
         <div>
-          <h1 className="text-sm text-[#c4c2d6]">MAIN</h1>
+          <h1
+            className={cn(
+              "text-sm text-[#c4c2d6]",
+              sideBarState == "open" ? "visible" : "hidden",
+            )}
+          >
+            MAIN
+          </h1>
 
           <Button
             variant="ghost"
-            className="justify-start w-full mt-1 cursor-pointer"
+            className="justify-start w-full mt-1 cursor-pointer bg-[#f5f5f5]"
           >
             <LayoutDashboard />
-            Overview
+            <p
+              className={cn("", sideBarState == "open" ? "visible" : "hidden")}
+            >
+              Overview
+            </p>
           </Button>
         </div>
 
         <div>
-          <h1 className="text-sm text-[#c4c2d6] mt-4">Resume</h1>
+          <h1
+            className={cn(
+              "text-sm text-[#c4c2d6]",
+              sideBarState == "open" ? "visible" : "hidden",
+            )}
+          >
+            Resume
+          </h1>
 
           <Button
             variant="ghost"
             className="justify-start w-full mt-1 cursor-pointer"
           >
             <FilePlusCorner />
-            Create New Resume
+            <p
+              className={cn("", sideBarState == "open" ? "visible" : "hidden")}
+            >
+              Create New Resume
+            </p>
           </Button>
 
           <Button
@@ -82,10 +129,19 @@ const Sidebar: React.FC<{ setSideBarActive: unknown }> = ({
             className="justify-start w-full mt-1 hover:bg-transparent"
           >
             <ListSortDescending />
-            Your Resume
+            <p
+              className={cn("", sideBarState == "open" ? "visible" : "hidden")}
+            >
+              Your Resume
+            </p>
           </Button>
 
-          <ol className="pl-4 flex flex-col gap-1 w-full mt-2">
+          <ol
+            className={cn(
+              "pl-4 flex flex-col gap-1 w-full mt-2",
+              sideBarState == "open" ? "visible" : "hidden",
+            )}
+          >
             <li className="flex items-center gap-2 relative">
               <Button
                 variant="ghost"
@@ -113,21 +169,36 @@ const Sidebar: React.FC<{ setSideBarActive: unknown }> = ({
         </div>
 
         <div>
-          <h1 className="text-sm text-[#c4c2d6] mt-3">Tools</h1>
+          <h1
+            className={cn(
+              "text-sm text-[#c4c2d6]",
+              sideBarState == "open" ? "visible" : "hidden",
+            )}
+          >
+            Tools
+          </h1>
 
           <Button
             variant="ghost"
             className="justify-start w-full mt-1 cursor-pointer"
           >
             <BadgeCheck />
-            ATS Score Check
+            <p
+              className={cn("", sideBarState == "open" ? "visible" : "hidden")}
+            >
+              ATS Score Check
+            </p>
           </Button>
           <Button
             variant="ghost"
             className="justify-start w-full mt-1 cursor-pointer"
           >
             <Mails />
-            Cover Letter
+            <p
+              className={cn("", sideBarState == "open" ? "visible" : "hidden")}
+            >
+              Cover Letter
+            </p>
           </Button>
         </div>
       </section>
@@ -135,14 +206,18 @@ const Sidebar: React.FC<{ setSideBarActive: unknown }> = ({
       <section className="absolute w-full bottom-3 px-2 border-t-1 pt-5">
         <Button className="w-full mb-2 cursor-pointer" variant="outline">
           <Settings />
-          Setting
+          <p className={cn("", sideBarState == "open" ? "visible" : "hidden")}>
+            Setting
+          </p>
         </Button>
         <Button
           variant="outline"
           className="w-full border-0 text-red-9502 font-medium cursor-pointer"
         >
           <LogOut />
-          Log Out
+          <p className={cn("", sideBarState == "open" ? "visible" : "hidden")}>
+            Log Out
+          </p>
         </Button>
       </section>
     </main>
