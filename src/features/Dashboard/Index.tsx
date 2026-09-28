@@ -14,13 +14,13 @@ const DashboardLayout: React.FC = () => {
     <main className="flex h-screen">
       <motion.aside
         animate={{
-          width: isSideBarActive === "open" ? 260 : 60,
+          width: isSideBarActive === "open" ? 259 : 59,
         }}
         transition={{
           duration: 0.3,
           ease: "easeInOut",
         }}
-        className="overflow-hidden border-r shrink-0"
+        className="fixed left-0 top-0 h-screen overflow-hidden border-r bg-white z-50"
       >
         <Sidebar
           setSideBarStatus={setSideBarActive}
@@ -29,7 +29,7 @@ const DashboardLayout: React.FC = () => {
         />
       </motion.aside>
 
-      <section className="flex-1 flex flex-col">
+      {/* <section className="flex-1 flex flex-col">
         <Header
           profilePopupStatus={profilePopupStatus}
           setProfilePopupStatus={setProfilePopupStatus}
@@ -39,7 +39,27 @@ const DashboardLayout: React.FC = () => {
         <main className="flex-1 p-4 bg-[#f6f5fa]">
           <Dashboard lightMode="true" />
         </main>
-      </section>
+      </section> */}
+      <motion.section
+        animate={{
+          marginLeft: isSideBarActive === "open" ? 259 : 59,
+        }}
+        transition={{
+          duration: 0.3,
+          ease: "easeInOut",
+        }}
+        className="flex flex-col min-h-screen w-screen"
+      >
+        <Header
+          profilePopupStatus={profilePopupStatus}
+          setProfilePopupStatus={setProfilePopupStatus}
+          setSideBarActive={setSideBarActive}
+        />
+
+        <main className="flex-1 p-4 bg-[#f6f5fa]">
+          <Dashboard lightMode="true" />
+        </main>
+      </motion.section>
     </main>
   );
 };

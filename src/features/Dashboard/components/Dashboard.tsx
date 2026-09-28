@@ -2,22 +2,17 @@ import React from "react";
 import DashboardCard from "./DashboardCard";
 import { Button } from "../../../components/ui/button";
 import { FileText, Send, Target, Trophy } from "lucide-react";
+import { ArrowLeft } from "./ArrowLeft";
+import { Badge } from "../../../components/ui/badge";
+import { Progress } from "../../../components/ui/progress";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
 } from "../../../components/ui/card";
-import { ArrowLeft } from "./ArrowLeft";
-import { Badge } from "../../../components/ui/badge";
-import { Progress } from "../../../components/ui/progress";
 
-interface IDashboard {
-  lightMode: string;
-}
-
-const Dashboard: React.FC<IDashboard> = ({ lightMode }) => {
-  console.log(lightMode);
+const Dashboard: React.FC = () => {
   const resumeAnalysis = [
     {
       id: 0,
@@ -146,15 +141,15 @@ const Dashboard: React.FC<IDashboard> = ({ lightMode }) => {
       </main>
 
       <main className="mt-4">
-        <section className="grid sm:grid-cols-2 grid-cols-[w-full] md:grid-cols-2  grid-rows-1 gap-4">
+        <section className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4  grid-rows-1 gap-4">
           {resumeAnalysis.map((item) => (
             <DashboardCard {...item} />
           ))}
         </section>
       </main>
 
-      <main className="flex justify-between gap-4 mt-4">
-        <Card className="flex-1">
+      <main className="mt-4 grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-4">
+        <Card>
           <CardHeader className="flex justify-between">
             <CardTitle className="font-normal">Recent Applications</CardTitle>
             <CardTitle className="font-normal flex items-center text-primary cursor-pointer">
@@ -192,7 +187,7 @@ const Dashboard: React.FC<IDashboard> = ({ lightMode }) => {
           </CardContent>
         </Card>
 
-        <Card className="flex-1">
+        <Card>
           <CardHeader className="flex justify-between">
             <CardTitle className="font-normal">Top Job Matches</CardTitle>
             <CardTitle className="font-normal flex items-center text-primary cursor-pointer">

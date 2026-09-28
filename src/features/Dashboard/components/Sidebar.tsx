@@ -1,6 +1,7 @@
 import React, { type Dispatch, type SetStateAction } from "react";
 import { motion } from "framer-motion";
 import { Button } from "../../../components/ui/button";
+import { cn } from "cn";
 import {
   BadgeCheck,
   FilePlusCorner,
@@ -13,15 +14,20 @@ import {
   Plus,
   Settings,
 } from "lucide-react";
-import { cn } from "cn";
-
-const Sidebar: React.FC<{
-  setSideBarStatus: Dispatch<SetStateAction<"open" | "close">>;
-  setProfilePopupStatus: Dispatch<SetStateAction<"open" | "close">>;
+import type { PopupState } from "../types/DashboardTypes";
+export interface ISideBar {
+  setSideBarStatus: Dispatch<SetStateAction<PopupState>>;
+  setProfilePopupStatus: Dispatch<SetStateAction<PopupState>>;
   sideBarState: string;
-}> = ({ setSideBarStatus, sideBarState, setProfilePopupStatus }) => {
+}
+
+const Sidebar: React.FC<ISideBar> = ({
+  setSideBarStatus,
+  sideBarState,
+  setProfilePopupStatus,
+}) => {
   return (
-    <main className="relative h-screen w-full">
+    <main className={cn("relative h-screen")}>
       <section className="flex items-center justify-between w-full pt-1 px-3 h-[81px]">
         <motion.div
           animate={{
