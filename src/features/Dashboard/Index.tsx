@@ -3,18 +3,19 @@ import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import { motion } from "framer-motion";
 import type { PopupState } from "./types/DashboardTypes";
-import Dashboard from "./components/Dashboard";
+import Stepper from "./components/Stepper";
 
 const DashboardLayout: React.FC = () => {
-  const [isSideBarActive, setSideBarActive] = useState<PopupState>("open");
+  const [isSideBarActive, setSideBarActive] = useState<PopupState>("close");
   const [profilePopupStatus, setProfilePopupStatus] =
     useState<PopupState>("open");
+  const [pageStep, setPageSteps] = useState<number>(0);
 
   return (
     <main className="flex h-screen">
       <motion.aside
         animate={{
-          width: isSideBarActive === "open" ? 259 : 59,
+          width: isSideBarActive === "close" ? 59 : 259,
         }}
         transition={{
           duration: 0.3,
@@ -29,17 +30,6 @@ const DashboardLayout: React.FC = () => {
         />
       </motion.aside>
 
-      {/* <section className="flex-1 flex flex-col">
-        <Header
-          profilePopupStatus={profilePopupStatus}
-          setProfilePopupStatus={setProfilePopupStatus}
-          setSideBarActive={setSideBarActive}
-        />
-
-        <main className="flex-1 p-4 bg-[#f6f5fa]">
-          <Dashboard lightMode="true" />
-        </main>
-      </section> */}
       <motion.section
         animate={{
           marginLeft: isSideBarActive === "open" ? 259 : 59,
@@ -56,8 +46,9 @@ const DashboardLayout: React.FC = () => {
           setSideBarActive={setSideBarActive}
         />
 
-        <main className="flex-1 p-4 bg-[#f6f5fa]">
-          <Dashboard lightMode="true" />
+        {/* bg-[#f6f5fa] */}
+        <main className="flex-1 p-4">
+          <Stepper />
         </main>
       </motion.section>
     </main>

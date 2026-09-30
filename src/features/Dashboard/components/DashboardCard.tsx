@@ -31,7 +31,7 @@ const DashboardCard: React.FC<IDashboardCard> = ({
     <Card key={id} className={cn(`${textColor} ${backgroundColor}`)}>
       <CardHeader>
         <CardTitle>
-          <h1 className="text-3xl">
+          <h1 className="text-3xl text-primary">
             {value}
             {type == "percentage" ? "%" : ""}
           </h1>

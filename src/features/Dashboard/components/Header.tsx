@@ -6,12 +6,11 @@ import {
   AvatarImage,
   AvatarFallback,
 } from "../../../components/ui/avatar";
-import { Bell, ChevronDown, Search, UserPen } from "lucide-react";
+import { Bell, ChevronDown, UserPen } from "lucide-react";
 import { Button } from "../../../components/ui/button";
 import { bellIcons } from "../../../assets/png/Index";
 import { Card, CardContent, CardHeader } from "../../../components/ui/card";
 import type { modeState, PopupState } from "../types/DashboardTypes";
-import { Input } from "../../../components/ui/input";
 
 interface IHeader {
   profilePopupStatus: PopupState;

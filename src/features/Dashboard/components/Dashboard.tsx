@@ -24,7 +24,7 @@ const Dashboard: React.FC = () => {
       badge: "+19 pts",
       icon: FileText,
       backgroundColor: "bg-violet-50",
-      textColor: "text-violet-700",
+      textColor: "text-black",
       progressColor: "bg-violet-500",
     },
     {
@@ -37,7 +37,7 @@ const Dashboard: React.FC = () => {
       badge: "+8%",
       icon: Target,
       backgroundColor: "bg-sky-50",
-      textColor: "text-sky-700",
+      textColor: "text-black",
       progressColor: "bg-sky-500",
     },
     {
@@ -50,7 +50,7 @@ const Dashboard: React.FC = () => {
       badge: "+4",
       icon: Send,
       backgroundColor: "bg-orange-50",
-      textColor: "text-orange-700",
+      textColor: "text-black",
       progressColor: "bg-orange-500",
     },
     {
@@ -63,7 +63,7 @@ const Dashboard: React.FC = () => {
       badge: "25%",
       icon: Trophy,
       backgroundColor: "bg-emerald-50",
-      textColor: "text-emerald-700",
+      textColor: "text-black",
       progressColor: "bg-emerald-500",
     },
   ];
